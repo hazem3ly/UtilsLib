@@ -1,0 +1,39 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.hazem.utilslib' // CREATE A GROUP ID FOR YOUR LIBRARY
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'com.hazem.utilslib' // CREATE A GROUP ID FOR YOUR LIBRARY
+                artifactId 'utilslib' // THE NAME OF YOUR MODULE
+
+                name 'UtilsLib' // YOUR LIBRARY NAME
+                description 'A collections of methods to work with Date objects.' // YOUR LIBRARY DESCRIPTION
+                url 'https://github.com/hazem3ly/UtilsLib' // YOUR SITE
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'hazem3ly' //YOUR ID
+                        name 'Hazem Ali' //YOUR NAME
+                        email 'hazem_3ly@yahoo.com' //YOUR EMAIL
+                    }
+                }
+                scm {
+                    connection 'https://github.com/hazem3ly/UtilsLib.git' // YOUR GIT REPO
+                    developerConnection 'https://github.com/hazem3ly/UtilsLib.git' // YOUR GIT REPO
+                    url 'https://github.com/hazem3ly/UtilsLib' // YOUR SITE
+
+                }
+            }
+        }
+    }
+}
