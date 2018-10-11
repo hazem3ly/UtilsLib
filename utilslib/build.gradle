@@ -1,7 +1,23 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
+publish {
+
+    def groupProjectID = 'com.hazem.utilslib'
+    def artifactProjectID = 'utilslib'
+    def publishVersionID = '0.0.1'
+
+    userOrg = 'hazem3ly'
+    repoName = 'utilslib'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Android Lib For Common Utils'
+    website = 'https://github.com/hazem3ly/UtilsLib'
+
+}
 android {
     compileSdkVersion 28
 
