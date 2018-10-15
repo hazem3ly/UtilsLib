@@ -1,1 +1,1 @@
-include ':app', ':utilslib', ':mvpbase'
+include ':app', ':utilslib', ':mvpBase', ':permissionslib'
