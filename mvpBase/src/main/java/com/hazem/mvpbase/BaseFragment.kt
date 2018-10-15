@@ -1,4 +1,4 @@
-package com.hazem.utilslib.core
+package com.hazem.mvpbase
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

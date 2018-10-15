@@ -1,6 +1,6 @@
 apply plugin: 'com.jfrog.bintray'
 
-version = '0.0.2' //YOUR LIBRARY VERSION
+version = '0.0.1' //YOUR LIBRARY VERSION
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -32,8 +32,8 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = 'UtilsLib'
-        name = 'utilsLib' //YOUR PACKAGE NAME
-        desc = 'A collections of methods to work with Date objects.' // YOUR LIBRARY DESCRIPTION
+        name = 'mvpBase' //YOUR PACKAGE NAME
+        desc = 'mvp project base' // YOUR LIBRARY DESCRIPTION
         websiteUrl = 'https://github.com/hazem3ly/UtilsLib' // YOUR SITE
         vcsUrl = 'https://github.com/hazem3ly/UtilsLib.git' // YOUR GIT REPO
         licenses = ["Apache-2.0"] // A LIST OF YOUR LICENCES

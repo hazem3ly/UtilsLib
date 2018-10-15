@@ -1,6 +1,6 @@
-package com.hazem.utilslib.core
+package com.hazem.mvpbase
 
-import com.hazem.utilslib.core.BaseView
+import com.hazem.mvpbase.BaseView
 
 
 interface LoadingView : BaseView {

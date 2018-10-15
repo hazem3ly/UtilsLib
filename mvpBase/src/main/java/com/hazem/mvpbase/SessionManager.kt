@@ -1,4 +1,4 @@
-package com.hazem.utilslib.core
+package com.hazem.mvpbase
 
 import android.content.Context
 import android.content.Intent

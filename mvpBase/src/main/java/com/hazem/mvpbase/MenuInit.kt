@@ -1,4 +1,4 @@
-package com.hazem.utilslib.core
+package com.hazem.mvpbase
 
 interface MenuInit{
     fun initMenuRes(): Int
