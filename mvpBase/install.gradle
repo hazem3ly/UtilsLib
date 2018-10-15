@@ -8,7 +8,7 @@ install {
             project {
                 packaging 'aar'
                 groupId 'com.hazem.utilslib' // CREATE A GROUP ID FOR YOUR LIBRARY
-                artifactId 'utilslib' // THE NAME OF YOUR MODULE
+                artifactId 'mvpBase' // THE NAME OF YOUR MODULE
 
                 name 'mvpBase' // YOUR LIBRARY NAME
                 description 'mvp project base' // YOUR LIBRARY DESCRIPTION
