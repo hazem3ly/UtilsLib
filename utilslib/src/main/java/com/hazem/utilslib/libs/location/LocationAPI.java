@@ -24,8 +24,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.hazem.utilslib.libs.network.Connectivity;
-import com.hazem.utilslib.libs.permissions.PermissionsFile;
 
+import net.corpy.permissionslib.PermissionsFile;
 
 import java.util.Locale;
 

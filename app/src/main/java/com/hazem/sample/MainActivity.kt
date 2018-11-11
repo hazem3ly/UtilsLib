@@ -1,8 +1,8 @@
 package com.hazem.sample
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.hazem.utilslib.libs.UtilsFunctions
+import android.support.v7.app.AppCompatActivity
+//import com.hazem.utilslib.libs.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,5 +11,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+//        this.toast("hello")
     }
 }

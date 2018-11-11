@@ -1,5 +1,7 @@
 package com.hazem.mvpbase
 
+import android.arch.lifecycle.Observer
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -37,7 +39,7 @@ abstract class BaseActivity<T : BasePresenter<*>> : AppCompatActivity(), BaseVie
                 toolbar?.setTitleTextColor(it)
             }
             // forward navigation clicked to implemented activity
-            toolbar?.setNavigationOnClickListener { _ -> toolbarImpl?.onToolbarClicked() }
+            toolbar?.setNavigationOnClickListener { toolbarImpl?.onToolbarClicked() }
 
             val actionBar: ActionBar? = supportActionBar
             // set actionbar title
@@ -46,12 +48,23 @@ abstract class BaseActivity<T : BasePresenter<*>> : AppCompatActivity(), BaseVie
             actionBar?.setDisplayShowHomeEnabled(toolbarImpl!!.showHomeUpButton())
         }
         initViews()
+
+        val connectionLiveData = ConnectionLiveData(this)
+        connectionLiveData.observe(this, Observer { isConnected ->
+            onNetworkChanged(isConnected)
+        })
     }
 
+    abstract fun onNetworkChanged(isConnected: Boolean?)
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(MyContextWrapper.wrap(newBase, getCurrentLanguage()))
+    }
 
     abstract fun loadResourceLayout(): Int
     abstract fun initPresenter(): T
     abstract fun initViews()
+    abstract fun getCurrentLanguage(): String
 
     abstract fun onMenuItemClicked(itemId: Int)
 

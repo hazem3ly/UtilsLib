@@ -1,6 +1,5 @@
 package com.hazem.utilslib.libs
 
-import android.R
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -12,7 +11,10 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.widget.Toolbar
 import android.util.Base64
 import android.util.DisplayMetrics
-import android.view.*
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -176,7 +178,7 @@ object UtilsFunctions {
         // setup the alert builder
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Choose App Language")
-        val arrayAdapter = ArrayAdapter<String>(context, R.layout.select_dialog_singlechoice)
+        val arrayAdapter = ArrayAdapter<String>(context, android.R.layout.select_dialog_singlechoice)
         arrayAdapter.add("ENGLISH")
         arrayAdapter.add("العربية")
 

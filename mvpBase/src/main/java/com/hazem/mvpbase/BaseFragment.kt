@@ -54,7 +54,7 @@ abstract class BaseFragment<P : BasePresenter<*>> : Fragment(), LoadingView {
                 toolbar?.setTitleTextColor(it)
             }
             // forward navigation clicked to implemented activity
-            toolbar?.setNavigationOnClickListener { _ -> toolbarImpl?.onToolbarClicked() }
+            toolbar?.setNavigationOnClickListener {toolbarImpl?.onToolbarClicked() }
 
             if (activity is AppCompatActivity) {
                 val actionBar: ActionBar? = (activity as AppCompatActivity).supportActionBar

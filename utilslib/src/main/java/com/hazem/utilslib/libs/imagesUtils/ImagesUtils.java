@@ -29,11 +29,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-
 import com.hazem.utilslib.BuildConfig;
 import com.hazem.utilslib.libs.compress.Compressor;
 import com.hazem.utilslib.libs.compress.OnCompressListener;
-import com.hazem.utilslib.libs.permissions.PermissionsFile;
+
+import net.corpy.permissionslib.PermissionsFile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
