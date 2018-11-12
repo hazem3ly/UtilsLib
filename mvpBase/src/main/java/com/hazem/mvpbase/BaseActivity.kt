@@ -3,6 +3,7 @@ package com.hazem.mvpbase
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.ActionBar
@@ -10,15 +11,31 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import java.util.*
 
 abstract class BaseActivity<T : BasePresenter<*>> : AppCompatActivity(), BaseView {
 
     private var toolbar: Toolbar? = null
     lateinit var presenter: T
 
+    fun isRTL(): Boolean {
+        return isRTL(Locale.getDefault())
+    }
+
+    fun isRTL(locale: Locale): Boolean {
+        val directionality = Character.getDirectionality(locale.displayName.toString()[0]).toInt()
+        return directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT.toInt()
+                || directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC.toInt()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // load custom resource layout
+
+//        window.decorView.layoutDirection =
+//                if (isRTL()) View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
+
         setContentView(loadResourceLayout())
 
         presenter = initPresenter()
@@ -57,14 +74,21 @@ abstract class BaseActivity<T : BasePresenter<*>> : AppCompatActivity(), BaseVie
 
     abstract fun onNetworkChanged(isConnected: Boolean?)
 
-    override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(MyContextWrapper.wrap(newBase, getCurrentLanguage()))
+    override fun attachBaseContext(base: Context?) {
+        if (base == null) super.attachBaseContext(this)
+        else {
+            val lang = getSavedLanguage(base)
+            super.attachBaseContext(MyContextWrapper.wrap(base, lang))
+        }
+    }
+
+    fun getSavedLanguage(context: Context): String {
+        return MyContextWrapper.getCurrentLanguage(context)
     }
 
     abstract fun loadResourceLayout(): Int
     abstract fun initPresenter(): T
     abstract fun initViews()
-    abstract fun getCurrentLanguage(): String
 
     abstract fun onMenuItemClicked(itemId: Int)
 

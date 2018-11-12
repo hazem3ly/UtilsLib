@@ -1,18 +1,12 @@
-package com.hazem.sample
+package com.hazem.sample.testActivity
 
-import android.content.Intent
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.hazem.mvpbase.BaseActivity
+import com.hazem.mvpbase.MyContextWrapper
 import com.hazem.mvpbase.shortToast
-import com.hazem.sample.testActivity.TestActivity
-import com.hazem.sample.testActivity.TestPresenter
-import com.hazem.sample.testActivity.TestView
+import com.hazem.sample.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-//import com.hazem.utilslib.libs.toast
-
-class MainActivity : BaseActivity<TestPresenter>(), TestView {
+class TestActivity : BaseActivity<TestPresenter>(), TestView {
     override fun onNetworkChanged(isConnected: Boolean?) {
 //        shortToast("onNetworkChanged")
     }
@@ -27,8 +21,16 @@ class MainActivity : BaseActivity<TestPresenter>(), TestView {
 
     override fun initViews() {
         setTitle(R.string.app_name)
+
+
         button.setOnClickListener {
-            startActivity(Intent(this, TestActivity::class.java))
+            shortToast("clicked")
+            val lang = getSavedLanguage(this)
+            if (lang == "ar") {
+                MyContextWrapper.changeAppLanguageAndRestart(this, "en")
+            } else {
+                MyContextWrapper.changeAppLanguageAndRestart(this, "ar")
+            }
         }
     }
 
@@ -46,5 +48,4 @@ class MainActivity : BaseActivity<TestPresenter>(), TestView {
 
     override fun finishLoad() {
     }
-
 }
